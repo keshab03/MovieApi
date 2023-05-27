@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import "./home.css"
 
@@ -15,7 +14,8 @@ const Home = () => {
   const fetchCharacters = async () => {
     try {
       const response = await axios.get(`https://swapi.dev/api/people/?page=${currentPage}`);
-      setCharacters(response.data.results);
+      const sortedCharacters = response.data.results.sort((a, b) => a.name.localeCompare(b.name));
+      setCharacters(sortedCharacters);
     } catch (error) {
       console.log(error);
     }
@@ -50,9 +50,7 @@ const Home = () => {
           {characters.map((character, index) => (
             <tr key={character.name}>
               <td>{index + 1}</td>
-              <td>
-                {character.name}
-              </td>
+              <td>{character.name}</td>
               <td>
                 <button id='fav' onClick={() => handleFavorite(character.name)}>
                   <i className="fa-sharp fa-solid fa-star"></i>
