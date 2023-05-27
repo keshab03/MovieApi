@@ -12,7 +12,8 @@ const Fev = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get('http://localhost:3000/name');
-      setData(response.data);
+      const sortedData = response.data.sort((a, b) => a.name.localeCompare(b.name));
+      setData(sortedData);
     } catch (error) {
       console.log(error);
     }
@@ -35,7 +36,7 @@ const Fev = () => {
           <table>
             <thead>
               <tr>
-                <th>Sl.No.</th>
+                
                 <th>Name</th>
                 <th>Action</th>
               </tr>
@@ -43,7 +44,6 @@ const Fev = () => {
             <tbody>
               {data.map((item, index) => (
                 <tr key={index}>
-                  <td>{item.id}</td>
                   <td>{item.name}</td>
                   <td>
                     <button id='dlt' onClick={() => handleDelete(item.id)}>Delete</button>
