@@ -1,0 +1,36 @@
+.container {
+    margin: 20px;
+  }  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+}  
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    padding: 8px;
+    text-align: left;
+  }
+  td {
+    border-bottom: 1px solid #ccc;
+    padding: 8px;
+  }
+  #dlt {
+    background-color: #f44336;
+    border-radius: 10px;
+    color: white;
+}
+  
+  #dlt:hover {
+    background-color: #d32f2f;
+  }
+  
+  .loading {
+    font-style: italic;
+    color: #888;
+  }
+  
