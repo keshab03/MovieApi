@@ -28,7 +28,7 @@ const Home = () => {
   const handleFavorite = async (name) => {
     try {
       await axios.post('http://localhost:3000/name', { name });
-    
+
       setFavorites([...favorites, name]);
     } catch (error) {
       console.log(error);
@@ -49,11 +49,9 @@ const Home = () => {
         <tbody>
           {characters.map((character, index) => (
             <tr key={character.name}>
-              <td>{index+1}</td>
+              <td>{index + 1}</td>
               <td>
-                <Link style={{textDecoration:'none',color:'black',cursor:'default'}} to={`/characters/${character.url.split('/')}`}>
-                  {character.name}
-                </Link>
+                {character.name}
               </td>
               <td>
                 <button id='fav' onClick={() => handleFavorite(character.name)}>
