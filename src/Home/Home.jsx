@@ -37,7 +37,6 @@ const Home = () => {
   };
 
   const handleDetails = (name) => {
-    // Find the selected character from the characters array
     const selected = characters.find((character) => character.name === name);
     setSelectedCharacter(selected);
   };
